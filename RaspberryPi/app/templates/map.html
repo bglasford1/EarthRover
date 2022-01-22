@@ -1,0 +1,81 @@
+<!— Copyright 2020, William Glasford—>
+<!— —>
+<!—  This is the map page that displays the map plot. —>
+<!— —>
+<!—  Mods:     02/05/20  Initial Release. —>
+
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Map Plot:</h1>
+<div class="chart-container" style="position: relative; height:40vh; width:80vw">
+    <canvas id="myPlotChart"></canvas>
+</div>
+<script>
+      imageData = JSON.parse({{ images | tojson }});
+
+      // Define the chart data.
+      var chartData =
+      {
+          datasets:
+          [{
+              data: {{ data }},
+              fill: false,
+              lineTension: 0,
+//              borderColor: 'Black', // Causes tooltips to not display
+              borderWidth: 1,
+              showLine: true
+          }]
+      }
+
+      // Define the chart options.
+      var chartOptions =
+      {
+          legend:
+          {
+              display: false
+          },
+          tooltips:
+          {
+              callbacks:
+              {
+                  title: function()
+                  {
+                      return "Images:";
+                  },
+                  label: function(tooltipItem, data)
+                  {
+                      var labels = [];
+
+                      var index = tooltipItem.index;
+                      for (i = 0; i < 5; i++)
+                      {
+                          xIndex = index + "element";
+                          if (xIndex in imageData)
+                          {
+                              var firstElement = imageData[xIndex];
+                              if (i in firstElement)
+                              {
+                                  var firstItem = imageData[xIndex][i];
+                                  labels[i] = firstItem;
+                              }
+                          }
+                      }
+                      return labels;
+                  }
+              }
+          }
+      }
+
+      // Get chart canvas.
+      var ctx = document.getElementById("myPlotChart").getContext('2d');
+
+      // Create the chart.
+      var myPlotChart = new Chart(ctx,
+      {
+          type: 'scatter',
+          data: chartData,
+          options: chartOptions
+      });
+  </script>
+{% endblock %}

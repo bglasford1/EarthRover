@@ -1,0 +1,35 @@
+<!— Copyright 2020, William Glasford—>
+<!— —>
+<!—  This is the test page. —>
+<!— —>
+<!—  Mods:     02/05/20  Initial Release. —>
+
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Send Test Command:</h2>
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.command.label }}<br>
+        {{ form.command(size=6) }}
+    </p>
+    <p>
+        {{ form.data1.label }}
+        {{ form.data1(size=6) }}
+    </p>
+    <p>
+        {{ form.data2.label }}
+        {{ form.data2(size=6) }}
+    </p>
+    <p>{{ form.submit() }}</p>
+    <p>
+        {{ form.lastCommandResponse.label }}<br>
+        {{ form.lastCommandResponse(size=40) }}
+    </p>
+    <p>
+        {{ form.arduino.label }}<br>
+        {{ form.arduino(rows='10',cols='40') }}
+    </p>
+</form>
+{% endblock %}

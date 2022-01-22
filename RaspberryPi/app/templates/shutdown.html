@@ -1,0 +1,16 @@
+<!— Copyright 2020, William Glasford—>
+<!— —>
+<!—  This is the shutdown confirmation page. —>
+<!— —>
+<!—  Mods:     02/05/20  Initial Release. —>
+
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Shutdown:</h2>
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>{{ form.shutdown() }}</p>
+    <p>{{ form.cancel() }}</p>
+</form>
+{% endblock %}

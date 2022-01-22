@@ -1,0 +1,71 @@
+<!— Copyright 2020, William Glasford—>
+<!— —>
+<!—  This is the lidar page that displays the lidar chart. —>
+<!— —>
+<!—  Mods:     02/05/20  Initial Release. —>
+
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Lidar Chart:</h1>
+  <div><canvas id="myChart" width="600" height="400"></canvas></div>
+  <p id="pointSelected">Point selected:</p>
+
+  <script>
+      // Global parameters:
+      // do not resize the chart canvas when its container does (keep at 600x400px)
+      Chart.defaults.global.responsive = false;
+
+      // define the chart data
+      var chartData = {
+        labels : [{% for item in labels %}
+                   "{{item}}",
+                  {% endfor %}],
+        datasets : [{
+            backgroundColor: "rgba(75,192,192,0.4)",
+            borderColor: "rgba(75,192,192,1)",
+            data : [{% for item in values %}
+                      {{item}},
+                    {% endfor %}]
+        }]
+      }
+
+      // get chart canvas
+      var holder = document.getElementById("myChart");
+      var ctx = document.getElementById("myChart").getContext("2d");
+
+      // create the chart using the chart canvas
+      var myChart = new Chart(ctx, {
+        type: 'radar',
+        data: chartData,
+        options: {
+          legend: {
+            display: false
+          },
+          tooltips: {
+            enabled: true,
+            mode: 'single',
+            callbacks: {
+              label: function(tooltipItems, data) {
+                       return tooltipItems.yLabel + ' degrees';
+                     }
+            }
+          },
+        }
+      });
+
+      // get the text element below the chart
+      var pointSelected = document.getElementById("pointSelected");
+
+      // create a callback function for updating the selected index on the chart
+      holder.onclick = function(evt){
+        var activePoint = myChart.getElementAtEvent(evt);
+        console.log(activePoint);
+        console.log('x:' + activePoint[0]._view.x);
+        console.log('maxWidth: ' + activePoint[0]._xScale.maxWidth);
+        console.log('y: ' + activePoint[0]._view.y);
+        console.log('index: ' + activePoint[0]._index);
+        pointSelected.innerHTML = 'Point selected... index: ' + activePoint[0]._index;
+      };
+   </script>
+{% endblock %}

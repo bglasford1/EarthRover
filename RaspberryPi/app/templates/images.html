@@ -1,0 +1,26 @@
+<!— Copyright 2020, William Glasford—>
+<!— —>
+<!—  This is the images page that lists available images to display. —>
+<!— —>
+<!—  Mods:     02/05/20  Initial Release. —>
+
+{% extends "base.html" %}
+
+{% block content %}
+<form action="" method="post" novalidate>
+    <table id="items">
+        {% for item in data %}
+        <tr>
+            <td>
+                <input type="checkbox" name="files" value="{{ item }}">
+                <label for="{{ item }}">{{ item }}:</label>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p>
+        {{ form.view() }}
+        {{ form.delete() }}
+    </p>
+</form>
+{% endblock %}

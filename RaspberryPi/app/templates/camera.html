@@ -1,0 +1,18 @@
+<!— Copyright 2020, William Glasford—>
+<!— —>
+<!—  This is the camera page that displays a camera image. —>
+<!— —>
+<!—  Mods:     02/05/20  Initial Release. —>
+
+{% extends "base.html" %}
+
+{% block content %}
+  <html>
+    <head>
+      <title>Camera</title>
+    </head>
+    <body>
+      <img src="{{ url_for('static', filename=name) }}" />
+    </body>
+  </html>
+{% endblock %}

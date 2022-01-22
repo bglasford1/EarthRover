@@ -1,0 +1,53 @@
+<!— Copyright 2020, William Glasford—>
+<!— —>
+<!—  This is the base page that all other pages are based.  It contains the main menu and message block. —>
+<!— —>
+<!—  Mods:     02/05/20  Initial Release. —>
+
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - MarsRover</title>
+      {% else %}
+      <title>Welcome to MarsRover</title>
+      {% endif %}
+        <script src='static/Chart.min.js'></script>
+        <style>
+          h2 {
+            font-size: 20px;
+            margin-top: 0.67em;
+            margin-bottom: 0.01em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+          }
+      </style>
+    </head>
+    <body>
+        <div>
+            MarsRover:
+            <a href="/index">Home</a>
+            <a href="/status">Status</a>
+            <a href="/command">Command</a>
+            <a href="/test">Test</a>
+            <a href="/map">Map</a>
+            <a href="/lidar">Lidar</a>
+            <a href="/images">Images</a>
+            <a href="/camera">View</a>
+            <a href="/restart">Restart</a>
+            <a href="/shutdown">Shutdown</a>
+            <a href="/help">Help</a>
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>

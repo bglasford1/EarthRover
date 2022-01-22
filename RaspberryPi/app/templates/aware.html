@@ -1,0 +1,60 @@
+<!— Copyright 2020, William Glasford—>
+<!— —>
+<!—  This is the page that displays situational awareness information. —>
+<!— —>
+<!—  Mods:     02/05/20  Initial Release. —>
+
+{% extends "base.html" %}
+
+{% block content %}
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <h2>  Orientation:</h2>
+    <div>
+        {{ form.direction.label }}
+        {{ form.direction(size=9) }}
+        <br>
+        {{ form.tiltX.label }}
+        {{ form.tiltX(size=9) }}
+        <br>
+        {{ form.tiltY.label }}
+        {{ form.tiltY(size=9) }}
+        <br>
+        {{ form.tiltZ.label }}
+        {{ form.tiltZ(size=9) }}
+    </div>
+    <h2>  Distances:</h2>
+    <div>
+        {{ form.frontDistance.label }}
+        {{ form.frontDistance(size=9) }}
+        <br>
+        {{ form.frontDropDistance.label }}
+        {{ form.frontDropDistance(size=9) }}
+        <br>
+        {{ form.rearDropDistance.label }}
+        {{ form.rearDropDistance(size=9) }}
+    </div>
+    <h2>  Power Values:</h2>
+    <div>
+        {{ form.solarPower.label }}
+        {{ form.solarPower(size=9) }}
+        <br>
+        {{ form.logicPower.label }}
+        {{ form.logicPower(size=9) }}
+        <br>
+        {{ form.drivePower.label }}
+        {{ form.drivePower(size=9) }}
+    </div>
+    <h2>  Temperature Values:</h2>
+    <div>
+        {{ form.roboATemp.label }}
+        {{ form.roboATemp(size=9) }}
+        <br>
+        {{ form.roboBTemp.label }}
+        {{ form.roboBTemp(size=9) }}
+        <br>
+        {{ form.dofTemp.label }}
+        {{ form.dofTemp(size=9) }}
+    </div>
+</form>
+{% endblock %}

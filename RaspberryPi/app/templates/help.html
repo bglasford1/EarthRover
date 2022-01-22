@@ -1,0 +1,17 @@
+<!— Copyright 2020, William Glasford—>
+<!— —>
+<!—  This is the help page. —>
+<!— —>
+<!—  Mods:     02/05/20  Initial Release. —>
+
+{% extends "base.html" %}
+
+{% block content %}
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.helpText.label }}<br>
+        {{ form.helpText(rows='40',cols='80') }}
+    </p>
+</form>
+{% endblock %}

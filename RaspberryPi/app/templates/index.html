@@ -1,0 +1,41 @@
+<!— Copyright 2020, William Glasford—>
+<!— —>
+<!—  This is the main index page. —>
+<!— —>
+<!—  Mods:     02/05/20  Initial Release. —>
+
+{% extends "base.html" %}
+
+{% block content %}
+  <form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <h2>Component Status:</h2>
+    <div>
+        {{ form.lcdStatus.label }}
+        {{ form.lcdStatus(size=6) }}
+        <br>
+        {{ form.roboclawAStatus.label }}
+        {{ form.roboclawAStatus(size=6) }}
+        <br>
+        {{ form.roboclawBStatus.label }}
+        {{ form.roboclawBStatus(size=6) }}
+        <br>
+        {{ form.orientationStatus.label }}
+        {{ form.orientationStatus(size=6) }}
+        <br>
+        {{ form.lidarStatus.label }}
+        {{ form.lidarStatus(size=6) }}
+        <br>
+        {{ form.servoDriverStatus.label }}
+        {{ form.servoDriverStatus(size=6) }}
+        <br>
+        {{ form.frontDropoffStatus.label }}
+        {{ form.frontDropoffStatus(size=6) }}
+        <br>
+        {{ form.rearDropoffStatus.label }}
+        {{ form.rearDropoffStatus(size=6) }}
+        <br>
+        {{ form.cameraStatus.label }}
+        {{ form.cameraStatus(size=6) }}
+  </form>
+{% endblock %}
