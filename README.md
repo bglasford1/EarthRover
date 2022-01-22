@@ -9,3 +9,5 @@ There is an older version of this document made in 2005 that was still based on 
 This rover is being designed as a multi-functional, expandable robot platform.  The rover shall be designed as an indoor/outdoor rover, i.e. an Earth rover based on the various Mars rovers. Some of the hazards include falling down stairs, running into objects and uneven surfaces and surface transitions.  Numerous sensors will be added to provide the maximum flexibility of present and future missions.  
 
 The main interface is via a web page that sends commands to the rover and displays data, including a video feed.  The command interface is based on the Mars rover interface.  In other words, send a sequence of commands and let the rover execute those before analyzing the results and formulating a next command sequence.  
+
+Note: The design information is contained in the wiki pages.
