@@ -1,0 +1,49 @@
+The following is a list of the commands and their input/output parameters.
+
+MF & MB = Move Forward and Move Backward
+    Data 1: The distance in inches.
+    Data 2: The speed as a percentage of total.
+    returns: "Success"
+
+RR & RL = Rotate Right and Rotate Left
+    Data 1: The degrees to rotate.
+    returns: "Success"
+
+SA = Situational Awareness: A conglomeration of "status" commands to fill in the status page.
+    returns: Various status values.
+
+LM = Lidar Map: Pans and reads the Lidar distance values in a 180 degree sweep.
+    returns: A map of direction / distance values.
+
+SI = Situational Imaging: Gets both a Lidar Map and camera images.
+    returns: A lidar map and camera images.
+
+CC = Center Camera: Center the camera to a forward position.
+    returns: "Success"
+
+CI = Capture Image: Capture a camera image.
+    returns: A camera image.
+
+CR & CL = Camera Right and Camera Left: Pan the camera right or left.
+    Data 1: Degrees to pan from 0 to 180, 90 degrees is straight ahead.
+    returns: "Success"
+
+CU & CD = Camera Up and Camera Down: Tilt the camera up or down.
+    Data 1: Degrees to tilt from 120 to 0, 90 degrees is straight ahead, 0 degrees is straight up.
+    returns: "Success"
+
+RC = Read Compass: Read the compass heading.
+    returns: The compass reading from 0 to 360.  0 is due north.
+
+TD = Read Tilt Data:
+    returns: 3 tilt values: x, y, & z.
+
+DD = Read Drop-off Data: Read both the front and rear drop-off sonar distances.
+    returns: Front and Rear drop-off distances in cm.
+
+TE = Read Temperature Data: Read the temperatures of the orientation sensor and both Roboclaw boards.
+    returns: The temperatures of the three boards in degrees Farenheit.
+
+PD = Read Power Data: Read the voltage of the power battery (~12v), the logic battery (~6v)
+       and the solar panels.
+    returns: The three voltages.
