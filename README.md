@@ -11,8 +11,3 @@ This rover is being designed as a multi-functional, expandable robot platform.  
 The main interface is via a web page that sends commands to the rover and displays data, including a video feed.  The command interface is based on the Mars rover interface.  In other words, send a sequence of commands and let the rover execute those before analyzing the results and formulating a next command sequence.  
 
 Note: The design information is contained in the wiki pages.
-
-
-![Front View](FrontView.jpeg)
-
-![Side View](SideView.jpeg)
